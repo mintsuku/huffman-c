@@ -2,13 +2,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 Tree* new_tree() {
   
   Tree *tree = (struct Tree *)malloc(sizeof(struct Tree));
   tree->root = NULL;
 
   return tree;
+}
+
+Node* new_node(uint8_t symbol, float weight) {
+  Node *node = (struct Node *)malloc(sizeof(struct Node));
+  
+  if (node) {
+    node->symbol = symbol;
+    node->weight = weight;
+    node->left = NULL;
+    node->right = NULL;
+  }
+
+
+  return node;
 }
 
 void insert_node(Node* node, Tree* tree) {
